@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHOCUSD</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1><img src="chocolate.png" alt="Token Logo" class="token-logo"> Chocolate USD (CHOCUSD)</h1>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <h2>Circulating Supply</h2>
+            <p id="circulating-supply">-- coins</p>
+            <p class="update-notice">Circulating supply is updated in real time based on data retrieved from the
+                blockchain.</p>
+        </section>
+        <section>
+            <h2>Current Reserves</h2>
+            <p id="reserves">-- USD</p>
+            <p class="update-notice">Information on reserves are updated weekly.</p>
+            <p class="update-notice">All reserves are held in fiat currency (US dollars), 1:1 corresponding to
+                circulating supply, securely in a bank.</p>
+        </section>
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <dl>
+                <dt>What is CHOCUSD?</dt>
+                <dd>CHOCUSD is a part of the Unstablecoin project, designed to highlight risks in poorly designed stablecoins.</dd>
+
+                <dt>What blockchain is CHOCUSD on?</dt>
+                <dd>CHOCUSD is currently deployed on the Sepolia testnet. Consisting of the
+                    <a href="https://sepolia.etherscan.io/address/0x91905B47AAeFFdc84D0B39546Eee6417570c19AA#code"
+                        target="_blank">proxy</a> and the
+                    <a href="https://sepolia.etherscan.io/address/0xccf20e80664a2f4b94feb9f99f1bacc9d87ee510#code"
+                        target="_blank">implementation</a> contract.
+                </dd>
+
+                <dt>How is 1:1 redemption guaranteed?</dt>
+                <dd>A 1:1 reserve of US dollars is held securely in a bank, which will be used for the redemption
+                    process, ensuring that each CHOCUSD token can be exchanged for an equivalent amount of US currency.
+                </dd>
+            </dl>
+        </section>
+        <footer>
+            <h3>Learn More</h3>
+            <ul>
+                <li><a href="https://github.com/unstablecoin-demo/unstablecoin/" target="_blank">GitHub Repository</a></li>
+                <li><a href="https://docs.google.com/document/d/1NRLvoBGLz5fvpMBvJFvzKlSlVcS3esNoWf9Fc1sLkEs" target="_blank">Whitepaper</a></li>
+                <li><a href="https://docs.google.com/document/d/1MqFBtqCeFLqe8ah8SkLVsbkVtkviceJQ9PiJYpUqB6U" target="_blank">Redemption Policy</a></li>
+            </ul>
+        </footer>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const apiURL = 'https://api-sepolia.etherscan.io/api?module=stats&action=tokensupply&contractaddress=0x91905B47AAeFFdc84D0B39546Eee6417570c19AA&apikey=YourApiKeyToken';
+
+            fetch(apiURL)
+                .then(response => response.json())
+                .then(data => {
+                    let supply = parseInt(data.result); // Assuming 'result' contains the supply
+                    supply = supply / 1e6; // Dividing by 10^5 to adjust the value
+                    let reserves = supply * 1.01; // Calculating reserves as 1.01 times the supply
+
+                    const formattedSupply = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(supply);
+                    const formattedReserves = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(reserves);
+
+                    document.getElementById('circulating-supply').textContent = formattedSupply;
+                    document.getElementById('reserves').textContent = formattedReserves;
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+/* General body styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background: #000000;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* This centers the content horizontally */
+    flex-wrap: wrap;
+    /* This will allow items to wrap if space is limited */
+}
+
+.company-logo {
+    height: 30px;
+    /* Smaller logo */
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.token-logo {
+    height: 30px;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    /* Center title text */
+    margin: 0;
+    flex-grow: 1;
+    /* Allows the h1 to grow and fill available space, centering the text */
+}
+
+/* Main content styling */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main section {
+    margin-bottom: 20px;
+}
+
+main h2 {
+    color: #333;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+}
+
+/* Enhanced visibility for currency values */
+#circulating-supply,
+#reserves {
+    font-size: 1.5em;
+    /* Increased font size */
+    font-weight: bold;
+    /* Bolder font for emphasis */
+    color: #333;
+    /* Darker color for contrast */
+    background-color: #ecf0f1;
+    /* Light background for the text area */
+    padding: 10px;
+    border-radius: 5px;
+    /* Rounded corners for the background */
+    display: inline-block;
+    /* Makes the background only as wide as necessary */
+    margin-top: 5px;
+    /* Space between the title and the amount */
+}
+
+.update-notice {
+    font-style: italic;
+    color: #666;
+    font-size: 0.9em;
+}
+
+
+/* faq styling */
+.faq {
+    background-color: #ffffff;
+    /* White background for readability */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    /* Consistent with other sections */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+}
+
+.faq h2 {
+    color: #333333;
+    /* Dark color for contrast */
+    margin-bottom: 10px;
+}
+
+.faq dl {
+    margin-left: 0;
+}
+
+.faq dt {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.faq dd {
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 0.95em;
+    /* Slightly smaller than main content text */
+}
+
+.faq a {
+    color: #007bff;
+    /* Links color for consistency */
+    text-decoration: underline;
+    /* Underline to highlight it's clickable */
+}
+
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #343a40;
+    color: #ffffff;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    /* Align items in a row */
+    justify-content: center;
+    /* Center the items horizontally */
+    gap: 20px;
+    /* Creates space between the items */
+}
+
+footer a {
+    text-decoration: none;
+    color: #00bfff;
+    font-weight: bold;
+    transition: color 0.3s;
+    /* Smooth transition for hover effect */
+}
+
+footer a:hover {
+    color: #ffffff;
+    /* Color changes when hovering over the link */
+}
+
+/* Pseudo-element for separators */
+footer li:not(:last-child)::after {
+    content: '|';
+    /* Separator character */
+    margin-left: 10px;
+    /* Space before the separator */
+    color: #00bfff;
+    /* Same color as the link text */
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    main {
+        width: 90%;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+}
