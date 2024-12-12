@@ -12,7 +12,7 @@ Contains site deployed using github pages covering key details on CHOCUSD
 - FAQ on general details on the project
 - Learn more section with links to Github, Whitepaper & Redemption Policy
 
-Currently viewable at https://unstablecoin-demo.pages.github.io/unstablecoin
+Currently viewable at https://unstablecoin-demo.github.io/unstablecoin/
 
 ### `/public`
 Contains documentation and resources for public dissemination:
